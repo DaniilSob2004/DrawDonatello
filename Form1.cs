@@ -2,10 +2,15 @@ namespace Lesson6
 {
     public partial class Form1: Form
     {
+        private SaveFileDialog sf;
+
         public Form1()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+
+            sf = new SaveFileDialog();
+            sf.Filter = "png files|*.png| jpg files|*.jpg";
         }
 
         private void DrawRoadSign(PaintEventArgs e)
@@ -80,8 +85,6 @@ namespace Lesson6
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "png files|*.png| jpg files|*.jpg";
             if (sf.ShowDialog() == DialogResult.OK)
             {
                 if (SaveImage(sf.FileName))
